@@ -1,0 +1,119 @@
+/* ===========================================
+   ASSETS
+   =========================================== */
+
+.asset-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.asset-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background: var(--bg-elevated);
+}
+
+.asset-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.asset-icon.property {
+    background: linear-gradient(135deg, var(--info), #3d6db8);
+}
+
+.asset-icon.business {
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+}
+
+.asset-icon.stock {
+    background: linear-gradient(135deg, var(--profit), var(--profit-dim));
+}
+
+.asset-info {
+    flex: 1;
+}
+
+.asset-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.asset-details {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+
+/* ===========================================
+   DEBT LIST
+   =========================================== */
+
+.debt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.debt-info {
+    flex: 1;
+}
+
+.debt-name {
+    font-weight: 500;
+}
+
+.debt-details {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.debt-amount {
+    font-family: var(--font-mono);
+    color: var(--loss);
+}
+
+/* ===========================================
+   EVENT LOG
+   =========================================== */
+
+.event-log {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.event-item {
+    padding: 0.5rem;
+    border-left: 3px solid var(--border);
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    background: var(--bg-elevated);
+    border-radius: 0 6px 6px 0;
+}
+
+.event-item.positive {
+    border-color: var(--profit);
+}
+
+.event-item.negative {
+    border-color: var(--loss);
+}
+
+.event-item.gold {
+    border-color: var(--gold);
+}
+

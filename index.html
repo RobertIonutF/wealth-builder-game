@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth Builder: The Rich Dad Simulation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="atmosphere"></div>
+
+    <!-- INTRO SCREEN -->
+    <div class="intro-screen" id="introScreen">
+        <div class="intro-wrapper">
+            <div class="intro-logo">💰</div>
+            <h1 class="intro-title">Wealth Builder</h1>
+            <p class="intro-subtitle">A Rich Dad, Poor Dad Simulation</p>
+            
+            <div class="intro-story">
+                <div class="story-header">📖 Your Story</div>
+                <p>You're <strong>18 years old</strong>, working a steady job earning <strong>$4,000/month</strong>. You have <strong>$2,000</strong> in savings.</p>
+                <p>But you also have debt: a <strong>$180,000 mortgage</strong>, <strong>$15,000 car loan</strong>, and <strong>$8,000 credit card</strong>.</p>
+                <p>Your goal? <strong>Escape the Rat Race</strong> by building enough passive income to cover your expenses. Navigate economic cycles, manage risk, and aim for true wealth!</p>
+                <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--gold)">🏆 Gold: 10 years | Silver: 20 years | Bronze: 30 years</p>
+            </div>
+
+            <div class="intro-concepts">
+                <div class="concept-card">
+                    <div class="concept-icon bad">📉</div>
+                    <div class="concept-title">Economic Cycles</div>
+                    <div class="concept-desc">Buy in recessions, be cautious at peaks</div>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon good">📈</div>
+                    <div class="concept-title">Good vs Bad Debt</div>
+                    <div class="concept-desc">Asset loans build wealth, consumer debt drains it</div>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon leverage">⚡</div>
+                    <div class="concept-title">Diversification</div>
+                    <div class="concept-desc">Spread risk across properties, businesses & stocks</div>
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="startGame()">
+                Begin Your Journey →
+            </button>
+        </div>
+    </div>
+
+    <!-- WIN SCREEN -->
+    <div class="win-screen" id="winScreen">
+        <div class="win-icon">🏆</div>
+        <h2 class="win-title">Financial Freedom Achieved!</h2>
+        <p class="win-message" id="winMessage"></p>
+        <div class="win-stats" id="winStats"></div>
+        <button class="btn-restart" onclick="location.reload()">Play Again</button>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-mark">💰</div>
+                <div class="logo-text">Wealth<span>Builder</span></div>
+            </div>
+            <div class="header-metrics">
+                <div class="metric">
+                    <div class="metric-label">Economy</div>
+                    <div class="metric-value" id="economyIndicator">📈 Expansion</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Net Worth</div>
+                    <div class="metric-value gold" id="headerNetWorth">$0</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Cash Flow</div>
+                    <div class="metric-value" id="headerCashFlow">$0</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Month</div>
+                    <div class="metric-value" id="headerMonth">1</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <main class="app-layout">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar-left">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">📊 Financial Statement</span>
+                </div>
+                <div class="fin-section">
+                    <div class="fin-label">Income</div>
+                    <div class="fin-row">
+                        <span>Salary</span>
+                        <span class="fin-value" id="incomeSalary">$4,000</span>
+                    </div>
+                    <div class="fin-row">
+                        <span>Passive Income</span>
+                        <span class="fin-value profit" id="incomePassive">$0</span>
+                    </div>
+                    <div class="fin-row total">
+                        <span>Total Income</span>
+                        <span class="fin-value" id="incomeTotal">$4,000</span>
+                    </div>
+                </div>
+                <div class="fin-section">
+                    <div class="fin-label">Expenses</div>
+                    <div class="fin-row">
+                        <span>Living</span>
+                        <span class="fin-value" id="expLiving">$1,500</span>
+                    </div>
+                    <div class="fin-row">
+                        <span>Debt Payments</span>
+                        <span class="fin-value" id="expDebt">$1,800</span>
+                    </div>
+                    <div class="fin-row total">
+                        <span>Total Expenses</span>
+                        <span class="fin-value loss" id="expTotal">$3,300</span>
+                    </div>
+                </div>
+                <div class="fin-section">
+                    <div class="fin-row total" style="border:none">
+                        <span>Monthly Cash Flow</span>
+                        <span class="fin-value profit" id="cashFlow">$700</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top:1rem">
+                <div class="panel-header">
+                    <span class="panel-title">💳 Debts</span>
+                </div>
+                <div id="debtList"></div>
+            </div>
+        </aside>
+
+        <!-- CENTER -->
+        <section class="main-content">
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="status-icon">💵</div>
+                    <div class="status-label">Cash</div>
+                    <div class="status-value" id="statCash">$2,000</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">📊</div>
+                    <div class="status-label">Credit Score</div>
+                    <div class="status-value" id="statCredit">680</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">🧠</div>
+                    <div class="status-label">Financial IQ</div>
+                    <div class="status-value" id="statIQ">10</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">🎂</div>
+                    <div class="status-label">Age</div>
+                    <div class="status-value" id="statAge">18</div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span>🐀 Escape Rat Race (Passive ≥ Expenses)</span>
+                        <span id="progressRat">0%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill green" id="barRat" style="width:0%"></div></div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span>💎 Millionaire ($1M Net Worth)</span>
+                        <span id="progressMil">0%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill gold" id="barMil" style="width:0%"></div></div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span>👑 Generational Wealth ($10M)</span>
+                        <span id="progressUltra">0%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill purple" id="barUltra" style="width:0%"></div></div>
+                </div>
+            </div>
+            
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin-bottom:1rem;font-size:0.75rem;text-align:center">
+                <div style="background:var(--bg-elevated);padding:0.5rem;border-radius:8px">
+                    <div style="color:var(--text-tertiary)">🥇 Gold</div>
+                    <div>≤10 years</div>
+                </div>
+                <div style="background:var(--bg-elevated);padding:0.5rem;border-radius:8px">
+                    <div style="color:var(--text-tertiary)">🥈 Silver</div>
+                    <div>≤20 years</div>
+                </div>
+                <div style="background:var(--bg-elevated);padding:0.5rem;border-radius:8px">
+                    <div style="color:var(--text-tertiary)">🥉 Bronze</div>
+                    <div>≤30 years</div>
+                </div>
+            </div>
+
+            <div class="tabs" id="actionTabs">
+                <button class="tab active" data-tab="properties">🏠 Properties</button>
+                <button class="tab" data-tab="businesses">🏢 Businesses</button>
+                <button class="tab" data-tab="stocks">📈 Stocks</button>
+                <button class="tab" data-tab="crypto">🪙 Crypto</button>
+                <button class="tab" data-tab="jobs">💼 Jobs</button>
+                <button class="tab" data-tab="education">📚 Education</button>
+                <button class="tab" data-tab="debt">💳 Debt Mgmt</button>
+                <button class="tab" data-tab="lifestyle">⚙️ Lifestyle</button>
+            </div>
+
+            <div class="action-grid" id="actionGrid"></div>
+
+            <div class="controls">
+                <button class="btn btn-primary" onclick="advanceMonth()">▶ Next Month</button>
+                <button class="btn btn-secondary" onclick="skipYear()">⏩ Skip Year</button>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="sidebar-right">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">🏦 Your Assets</span>
+                </div>
+                <div class="asset-list" id="assetList">
+                    <p style="color:var(--text-tertiary);font-size:0.8rem;text-align:center;padding:1rem">No assets yet. Start investing!</p>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top:1rem">
+                <div class="panel-header">
+                    <span class="panel-title">📰 Events</span>
+                </div>
+                <div class="event-log" id="eventLog"></div>
+            </div>
+
+            <div class="panel" style="margin-top:1rem">
+                <div class="panel-header">
+                    <span class="panel-title">📈 Statistics</span>
+                </div>
+                <div class="fin-row">
+                    <span>Leverage Ratio</span>
+                    <span class="fin-value" id="statLeverage">0x</span>
+                </div>
+                <div class="fin-row">
+                    <span>Total Assets Value</span>
+                    <span class="fin-value profit" id="statAssetValue">$0</span>
+                </div>
+                <div class="fin-row">
+                    <span>Total Liabilities</span>
+                    <span class="fin-value loss" id="statLiabilities">$203,000</span>
+                </div>
+                <div class="fin-row">
+                    <span>Diversification</span>
+                    <span class="fin-value" id="statDiversification">-</span>
+                </div>
+                <div class="fin-row">
+                    <span>Good Debt Ratio</span>
+                    <span class="fin-value" id="statGoodDebt">0%</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <div id="modalContent"></div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" id="modalConfirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

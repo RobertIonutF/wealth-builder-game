@@ -1,0 +1,204 @@
+/* ===========================================
+   INTRO SCREEN
+   =========================================== */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg-void);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.intro-screen.hidden {
+    display: none;
+}
+
+.intro-wrapper {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.intro-logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, var(--gold), var(--gold-dim));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 60px rgba(201, 169, 98, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.intro-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.intro-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.intro-story {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.story-header {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.intro-story p {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.intro-story strong {
+    color: var(--text-primary);
+}
+
+.intro-concepts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.concept-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-accent);
+}
+
+.concept-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 0 auto 0.75rem;
+}
+
+.concept-icon.bad {
+    background: linear-gradient(135deg, var(--loss), var(--loss-dim));
+}
+
+.concept-icon.good {
+    background: linear-gradient(135deg, var(--profit), var(--profit-dim));
+}
+
+.concept-icon.leverage {
+    background: linear-gradient(135deg, var(--info), #3d6db8);
+}
+
+.concept-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.concept-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ===========================================
+   WIN SCREEN
+   =========================================== */
+
+.win-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg-void);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+}
+
+.win-screen.active {
+    display: flex;
+}
+
+.win-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s infinite;
+}
+
+.win-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.win-message {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.win-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.win-stat {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.win-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+}
+
+.win-stat-value {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+

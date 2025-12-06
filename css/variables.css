@@ -1,0 +1,39 @@
+/* ===========================================
+   CSS VARIABLES
+   =========================================== */
+
+:root {
+    /* Backgrounds */
+    --bg-void: #08090c;
+    --bg-deep: #0d0f14;
+    --bg-surface: #13161d;
+    --bg-elevated: #1a1e27;
+    --bg-hover: #222733;
+
+    /* Gold palette */
+    --gold-dim: #8b7355;
+    --gold: #c9a962;
+    --gold-bright: #f0d78c;
+
+    /* Status colors */
+    --profit: #3dd9a0;
+    --profit-dim: #2a9d6e;
+    --loss: #f45b69;
+    --loss-dim: #b8444e;
+    --info: #5b9cf4;
+
+    /* Text */
+    --text-primary: #f4f4f6;
+    --text-secondary: #9199a8;
+    --text-tertiary: #5c6370;
+
+    /* Borders */
+    --border: rgba(255, 255, 255, 0.06);
+    --border-accent: rgba(201, 169, 98, 0.3);
+
+    /* Typography */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+

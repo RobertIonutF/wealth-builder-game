@@ -1,0 +1,28 @@
+/* ===========================================
+   BASE STYLES
+   =========================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-void);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.atmosphere {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+        radial-gradient(ellipse 800px 600px at 20% 30%, rgba(201, 169, 98, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 800px at 80% 70%, rgba(61, 217, 160, 0.04) 0%, transparent 50%);
+}
+

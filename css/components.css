@@ -1,0 +1,182 @@
+/* ===========================================
+   STATUS CARDS
+   =========================================== */
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.status-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.status-card:hover {
+    border-color: var(--border-accent);
+}
+
+.status-icon {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.status-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+}
+
+.status-value {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ===========================================
+   PROGRESS
+   =========================================== */
+
+.progress-section {
+    margin-bottom: 1rem;
+}
+
+.progress-item {
+    margin-bottom: 0.75rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--bg-void);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.progress-fill.green {
+    background: linear-gradient(90deg, var(--profit-dim), var(--profit));
+}
+
+.progress-fill.gold {
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+}
+
+.progress-fill.purple {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+/* ===========================================
+   TABS
+   =========================================== */
+
+.tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 0.5rem 1rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    border-color: var(--border-accent);
+}
+
+.tab.active {
+    background: var(--gold);
+    color: var(--bg-void);
+    border-color: var(--gold);
+}
+
+/* ===========================================
+   ACTION CARDS
+   =========================================== */
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
+
+.action-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-card:hover:not(.locked) {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(201, 169, 98, 0.15);
+}
+
+.action-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.action-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.action-stats span {
+    font-family: var(--font-mono);
+}
+
+.action-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: var(--gold);
+    color: var(--bg-void);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.action-lock {
+    font-size: 0.7rem;
+    color: var(--loss);
+    margin-top: 0.5rem;
+}
+
