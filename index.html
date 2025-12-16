@@ -284,6 +284,57 @@
     <!-- TOAST -->
     <div class="toast-container" id="toastContainer"></div>
 
+    <!-- MOBILE NAVIGATION -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-btn" onclick="toggleMobileDrawer('finances')" aria-label="View Finances">
+            <span class="mobile-nav-icon">📊</span>
+            <span class="mobile-nav-label">Finances</span>
+        </button>
+        <button class="mobile-nav-btn" onclick="toggleMobileDrawer('assets')" aria-label="View Assets">
+            <span class="mobile-nav-icon">🏦</span>
+            <span class="mobile-nav-label">Assets</span>
+        </button>
+        <button class="mobile-nav-btn" onclick="toggleMobileDrawer('events')" aria-label="View Events">
+            <span class="mobile-nav-icon">📰</span>
+            <span class="mobile-nav-label">Events</span>
+        </button>
+    </div>
+
+    <!-- MOBILE DRAWERS -->
+    <div class="mobile-drawer" id="drawerFinances">
+        <div class="mobile-drawer-overlay" onclick="closeMobileDrawers()"></div>
+        <div class="mobile-drawer-content">
+            <div class="mobile-drawer-header">
+                <h3>📊 Financial Statement</h3>
+                <button class="mobile-drawer-close" onclick="closeMobileDrawers()" aria-label="Close">✕</button>
+            </div>
+            <div class="mobile-drawer-body" id="mobileFinances"></div>
+        </div>
+    </div>
+
+    <div class="mobile-drawer" id="drawerAssets">
+        <div class="mobile-drawer-overlay" onclick="closeMobileDrawers()"></div>
+        <div class="mobile-drawer-content">
+            <div class="mobile-drawer-header">
+                <h3>🏦 Your Assets & Debts</h3>
+                <button class="mobile-drawer-close" onclick="closeMobileDrawers()" aria-label="Close">✕</button>
+            </div>
+            <div class="mobile-drawer-body" id="mobileAssets"></div>
+        </div>
+    </div>
+
+    <div class="mobile-drawer" id="drawerEvents">
+        <div class="mobile-drawer-overlay" onclick="closeMobileDrawers()"></div>
+        <div class="mobile-drawer-content">
+            <div class="mobile-drawer-header">
+                <h3>📰 Events & Stats</h3>
+                <button class="mobile-drawer-close" onclick="closeMobileDrawers()" aria-label="Close">✕</button>
+            </div>
+            <div class="mobile-drawer-body" id="mobileEvents"></div>
+        </div>
+    </div>
+
     <script type="module" src="js/main.js"></script>
+    <script src="js/mobile.js"></script>
 </body>
 </html>

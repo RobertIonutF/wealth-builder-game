@@ -202,3 +202,193 @@
     font-weight: 700;
 }
 
+/* ===========================================
+   MOBILE SCREEN ADJUSTMENTS
+   =========================================== */
+
+@media (max-width: 768px) {
+    .intro-screen {
+        padding: 1.5rem;
+    }
+
+    .intro-wrapper {
+        padding: 1.5rem 0;
+    }
+
+    .intro-logo {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .intro-title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        margin-bottom: 0.4rem;
+    }
+
+    .intro-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .intro-story {
+        padding: 1.25rem;
+        border-radius: 14px;
+        margin-bottom: 1.25rem;
+    }
+
+    .story-header {
+        font-size: 1.1rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .intro-story p {
+        font-size: 0.85rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .intro-concepts {
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .concept-card {
+        padding: 0.9rem;
+    }
+
+    .concept-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .concept-title {
+        font-size: 0.85rem;
+    }
+
+    .concept-desc {
+        font-size: 0.7rem;
+    }
+
+    .win-icon {
+        font-size: 3.5rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .win-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .win-message {
+        font-size: 0.95rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .win-stats {
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .win-stat {
+        padding: 0.9rem;
+    }
+
+    .win-stat-label {
+        font-size: 0.65rem;
+    }
+
+    .win-stat-value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .intro-concepts {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .concept-card {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .concept-icon {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .concept-content {
+        flex: 1;
+    }
+
+    .win-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-screen {
+        padding: 1rem;
+    }
+
+    .intro-wrapper {
+        padding: 1rem 0;
+    }
+
+    .intro-logo {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .intro-story {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .story-header {
+        font-size: 1rem;
+    }
+
+    .intro-story p {
+        font-size: 0.8rem;
+    }
+
+    .concept-card {
+        padding: 0.75rem;
+    }
+
+    .concept-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .concept-title {
+        font-size: 0.8rem;
+    }
+
+    .concept-desc {
+        font-size: 0.68rem;
+    }
+
+    .win-screen {
+        padding: 1.5rem;
+    }
+
+    .win-icon {
+        font-size: 3rem;
+    }
+
+    .win-title {
+        font-size: 1.5rem;
+    }
+}
+

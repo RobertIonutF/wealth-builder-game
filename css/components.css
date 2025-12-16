@@ -93,6 +93,15 @@
     gap: 0.25rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
 }
 
 .tab {
@@ -104,6 +113,9 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-height: 44px;
 }
 
 .tab:hover {
@@ -178,5 +190,100 @@
     font-size: 0.7rem;
     color: var(--loss);
     margin-top: 0.5rem;
+}
+
+/* ===========================================
+   MOBILE COMPONENT ADJUSTMENTS
+   =========================================== */
+
+@media (max-width: 900px) {
+    .tabs {
+        flex-wrap: nowrap;
+        scroll-snap-type: x proximity;
+    }
+
+    .tab {
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 768px) {
+    .status-card {
+        padding: 0.6rem;
+    }
+
+    .status-icon {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .status-label {
+        font-size: 0.55rem;
+    }
+
+    .status-value {
+        font-size: 0.9rem;
+    }
+
+    .action-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.6rem;
+    }
+
+    .action-card {
+        padding: 0.85rem;
+        min-height: 110px;
+    }
+
+    .action-name {
+        font-size: 0.85rem;
+    }
+
+    .action-stats {
+        font-size: 0.7rem;
+    }
+
+    .progress-header {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .action-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .action-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .tab {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .progress-section {
+        margin-bottom: 0.75rem;
+    }
+
+    .progress-item {
+        margin-bottom: 0.6rem;
+    }
+
+    .progress-header {
+        font-size: 0.65rem;
+    }
+
+    .progress-bar {
+        height: 5px;
+    }
 }
 
