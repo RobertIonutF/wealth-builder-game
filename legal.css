@@ -1,0 +1,8 @@
+:root { color-scheme: dark; font-family: Arial, sans-serif; background: #101014; color: #f4f1e8; }
+body { margin: 0; padding: 32px 18px; }
+main { max-width: 760px; margin: auto; padding: 32px; border: 1px solid #675727; border-radius: 18px; background: #18181d; }
+h1, h2 { color: #f4d06f; } h2 { margin-top: 30px; }
+p, li { line-height: 1.7; color: #d5d2ca; }
+a { color: #f4d06f; } nav { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #3d392d; }
+button { padding: 11px 15px; border: 1px solid #f4d06f; border-radius: 8px; background: transparent; color: #f4d06f; cursor: pointer; }
+@media (max-width: 600px) { main { padding: 22px; } }
