@@ -12,3 +12,19 @@
 @import 'utilities.css';
 @import 'mobile.css';
 
+/* Permanent legal controls for the local-only simulation. */
+.legal-nav {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid rgba(212, 175, 55, .4);
+    border-radius: 999px;
+    background: rgba(10, 10, 12, .94);
+    font: 600 12px/1.2 Arial, sans-serif;
+}
+.legal-nav a { color: #f4d06f; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .legal-nav { left: 8px; right: 8px; bottom: 72px; justify-content: center; } }
